@@ -18,3 +18,16 @@ exports.tampilsemuamahasiswa = (req, res) => {
         }
     })
 }
+
+// Menampilkan data mahasiswa berdasarkan id mahasiswa
+exports.tampilberdasarkanid = (req, res) => {
+    let id = req.params.id
+    connection.query('SELECT * FROM mahasiswa WHERE id_mahasiswa = ?', [id], 
+        (error, rows, fields) => {
+            if(error){
+                connection.log(error)
+            }else{
+                response.ok(rows, res)
+            }
+    })
+}
