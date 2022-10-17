@@ -6,4 +6,7 @@ module.exports = (app) => {
     // jsonku adalah controller dan didalam controller ada menu index
     app.route('/')
         .get(jsonku.index)
+
+    app.route('/tampil')
+        .get(jsonku.tampilsemuamahasiswa)
 }
