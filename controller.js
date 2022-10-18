@@ -66,3 +66,16 @@ exports.mengubahData = (req, res) => {
         }
     })
 }
+
+// Menghapus data
+exports.menghapusData = (req, res) => {
+    let id = req.body.id
+    connection.query("DELETE FROM mahasiswa WHERE id_mahasiswa=?", [id],
+    (error, rows, fields) => {
+        if(error){
+            console.log(error);
+        }else{
+            response.ok("Data berhasil dihapus", res)
+        }
+    })
+}
