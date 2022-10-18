@@ -31,3 +31,20 @@ exports.tampilberdasarkanid = (req, res) => {
             }
     })
 }
+
+// Menambahkan data mahasiswa
+exports.tambahMahasiswa = (req, res) => {
+    const nim = req.body.nim
+    const nama = req.body.nama
+    const jurusan = req.body.jurusan
+
+    connection.query("INSERT INTO mahasiswa (nim, nama, jurusan) VALUES (?,?,?)",
+        [nim, nama, jurusan],
+        (error, rows, fields)=> {
+            if(error){
+                console.log(error);
+            }else{
+                response.ok("Data berhasil ditambahkan", res)
+            }
+        })
+}
