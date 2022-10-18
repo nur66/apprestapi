@@ -15,4 +15,7 @@ module.exports = (app) => {
     
     app.route('/tambah')
         .post(jsonku.tambahMahasiswa)
+
+    app.route('/ubah')
+        .put(jsonku.mengubahData)
 }
